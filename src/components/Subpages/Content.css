@@ -1,0 +1,34 @@
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh; 
+  background-image: url('../images/devopsbgimage.png'); 
+  background-size: cover;
+  background-position: center;
+  color: white; 
+  color: #fff;
+}
+.content-container h2 {
+  font-size: 48px; 
+  line-height: 56px;
+  margin-bottom: 10px;
+}
+.content-container p {
+  margin-bottom: 20px; 
+  display: block;
+}
+/* Additional styling for the button */
+.content-container button {
+  background: linear-gradient(to right, #E30045, #9c448f);;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
