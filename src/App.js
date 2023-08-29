@@ -24,7 +24,7 @@ function App() {
         <Route path="/github" element={<Github />} />
         <Route path="/history" element={<History />} />
         <Route path="/testing" element={<Testing />} />
-        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

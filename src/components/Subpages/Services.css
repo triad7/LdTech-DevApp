@@ -23,6 +23,7 @@
     background: linear-gradient(to right, #ad3358, #99538f);;
     box-shadow: black;
     text-align: center;
+    color: #fff;
   }
   
   .service-card h3 {
