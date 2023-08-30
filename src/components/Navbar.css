@@ -26,11 +26,11 @@
   
   .nav-menu {
     display: grid;
-    grid-template-columns: repeat(7, auto);
+    grid-template-columns: repeat(8, auto);
     grid-gap: 6px;
     list-style: none;
     text-align: center;
-    width: 70vw;
+    width: 80vw;
     justify-content: end;
     margin-right: 2rem;
   }
