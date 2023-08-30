@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# Run your local system
+ * Fork the Repository
+ * create Repository with name
 
-## Available Scripts
+## Clone
+Clone Project repository
+```bash
+  git clone <https URL>
+```
+
+ 1. Go to project folder after clone
+ 2. install react-script using below command
+ ```bash
+  npm i react-scripts
+```
+
+## Scripts to run React project in your local server
 
 In the project directory, you can run:
 
