@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faShare, faSave, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faShare, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
+import TestConnection from '../Subpages/TestConnection';
 
 
 
@@ -25,6 +26,7 @@ export default function Github() {
 
   return (
     <>
+    <TestConnection />
     <div className='github-page'>
       <div className='github-header'>
         <FontAwesomeIcon icon={fabGithub} className='github-icon' />
@@ -68,10 +70,6 @@ export default function Github() {
         <button className='share-button'>
           <FontAwesomeIcon icon={faShare} className='share-icon' />
           Share
-        </button>
-        <button className='test-connection-button'>
-          <FontAwesomeIcon icon={faCheck} className='test-icon' />
-          Test Connection
         </button>
       </div>
     </div>
