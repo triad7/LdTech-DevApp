@@ -110,7 +110,7 @@ function Navbar() {
         </li>
 
           <li className='nav-item'>
-            <Link to='/contact-us' className='nav-links' onClick={closeMobileMenu}>
+            <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
             <FontAwesomeIcon icon={faAddressBook} className='home-icon' /> Contact
             </Link>
           </li>

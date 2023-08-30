@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faShare, faSave, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 
+
+
 export default function Github() {
   const [username, setUsername] = useState('');
   const [repo, setRepo] = useState('');
@@ -22,6 +24,7 @@ export default function Github() {
   };
 
   return (
+    <>
     <div className='github-page'>
       <div className='github-header'>
         <FontAwesomeIcon icon={fabGithub} className='github-icon' />
@@ -62,15 +65,16 @@ export default function Github() {
           <FontAwesomeIcon icon={faSave} className='save-icon' />
           Save
         </button>
-        <button className='test-connection-button'>
-          <FontAwesomeIcon icon={faCheck} className='test-icon' />
-          Test Connection
-        </button>
         <button className='share-button'>
           <FontAwesomeIcon icon={faShare} className='share-icon' />
           Share
         </button>
+        <button className='test-connection-button'>
+          <FontAwesomeIcon icon={faCheck} className='test-icon' />
+          Test Connection
+        </button>
       </div>
     </div>
+    </>
   );
 }

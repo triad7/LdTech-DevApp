@@ -6,9 +6,9 @@ import Deployments from './components/pages/Deployments';
 import Cijobs from './components/pages/Cijobs';
 import Github from './components/pages/Github';
 import History from './components/pages/History';
-import Contact from './components/pages/Contact';
 import Testing from './components/pages/Testing';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Maincontact from './components/pages/Maincontact';
 
 
 
@@ -24,7 +24,7 @@ function App() {
         <Route path="/github" element={<Github />} />
         <Route path="/history" element={<History />} />
         <Route path="/testing" element={<Testing />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Maincontact />} />
       </Routes>
     </Router>
   );
