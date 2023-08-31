@@ -143,9 +143,7 @@
     color: #fff;
     font-size: 1.5rem;
   }
-<<<<<<< HEAD
-=======
-  
+
   .fa-firstdraft {
     margin-left: 0.5rem;
     font-size: 1.6rem;
@@ -223,7 +221,7 @@
       padding-top: 10px; 
     }
     
->>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d
+
 
   .nav-links-mobile:hover {
     background: #fff;
@@ -239,4 +237,5 @@
 .navbar-logo .logo-image {
   width: 150px; 
   height: 80px; 
+}
 }

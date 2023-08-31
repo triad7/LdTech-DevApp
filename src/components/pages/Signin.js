@@ -1,5 +1,4 @@
 
-
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
@@ -53,8 +52,6 @@ function Signin({ setIsAuthenticated }) {
   );
 }
 
-<<<<<<< HEAD
 export default Signin;
-=======
-export default Signin;
->>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d
+
+
