@@ -78,11 +78,7 @@ function Navbar({ isAuthenticated }) {
               <FontAwesomeIcon icon={faHome} className='home-icon' /> Home
             </Link>
           </li>
-          <li className='nav-item'>
-                <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-                  <FontAwesomeIcon icon={faAddressBook} className='home-icon' /> Contact
-                </Link>
-              </li>
+     
           {isAuthenticated && (
             <>
               <li className='nav-item'>
@@ -122,11 +118,20 @@ function Navbar({ isAuthenticated }) {
             </>
           )}
           {!isAuthenticated && (
-            <li className='nav-item'>
+            <>
+             <li className='nav-item'>
               <Link to='/signin' className='nav-links' onClick={closeMobileMenu}>
                 <FontAwesomeIcon icon={faUser} className='home-icon' /> SignIn
               </Link>
             </li>
+                <li className='nav-item'>
+                 <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+                   <FontAwesomeIcon icon={faAddressBook} className='home-icon' /> Contact
+                 </Link>
+               </li>
+            </>
+           
+             
           )}
         </ul>
       </nav>
