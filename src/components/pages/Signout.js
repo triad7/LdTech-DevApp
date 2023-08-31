@@ -20,4 +20,8 @@ function Signout({ setIsAuthenticated }) {
   );
 }
 
+<<<<<<< HEAD
 export default Signout;
+=======
+export default Signout;
+>>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d

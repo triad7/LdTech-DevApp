@@ -21,7 +21,11 @@ const Signup = () => {
 
       alert('User created successfully');
     } catch (error) {
+<<<<<<< HEAD
       console.log(error);
+=======
+      console.error(error);
+>>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d
     }
   };
 
@@ -59,4 +63,8 @@ const Signup = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Signup;
+=======
+export default Signup;
+>>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d

@@ -53,4 +53,8 @@ function Signin({ setIsAuthenticated }) {
   );
 }
 
+<<<<<<< HEAD
 export default Signin;
+=======
+export default Signin;
+>>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d

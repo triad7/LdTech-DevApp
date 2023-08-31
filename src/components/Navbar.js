@@ -78,11 +78,14 @@ function Navbar({ isAuthenticated }) {
               <FontAwesomeIcon icon={faHome} className='home-icon' /> Home
             </Link>
           </li>
+<<<<<<< HEAD
           <li className='nav-item'>
                 <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
                   <FontAwesomeIcon icon={faAddressBook} className='home-icon' /> Contact
                 </Link>
               </li>
+=======
+>>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d
           {isAuthenticated && (
             <>
               <li className='nav-item'>
@@ -113,7 +116,15 @@ function Navbar({ isAuthenticated }) {
                 </Link>
                 {historyDropdown && <Historydropdown />}
               </li>
+<<<<<<< HEAD
             
+=======
+              <li className='nav-item'>
+                <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+                  <FontAwesomeIcon icon={faAddressBook} className='home-icon' /> Contact
+                </Link>
+              </li>
+>>>>>>> 4ddd17cb780d15bdd906d6e6be14791fd33f399d
               <li className='nav-item'>
                 <Link to='/signout' className='nav-links' onClick={closeMobileMenu}>
                   <FontAwesomeIcon icon={faSignOut} className='home-icon' /> Sign Out
