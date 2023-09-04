@@ -1,21 +1,3 @@
-/* const db = require('../config/db');
-const bcrypt = require("bcrypt");
-
-class User {
-  static createUser(username, email, password, confirmPassword, callback) {
-    const hashedPassword = bcrypt.hashSync(password, 10);
-    const query = 'INSERT INTO users (username, email, password, confirmPassword) VALUES (?, ?, ?, ?)';
-    db.query(query, [username, email, hashedPassword, confirmPassword], callback);
-  }
-
-  static findByUsername(username, callback) {
-    const query = 'SELECT * FROM users WHERE username = ?';
-    db.query(query, [username], callback);
-  }
-}
-
-module.exports = User;
- */
 
 const bcrypt = require('bcrypt');
 const pool = require('../config/db');
