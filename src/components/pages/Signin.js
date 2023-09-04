@@ -26,10 +26,12 @@ function Signin({ setIsAuthenticated }) {
     }
   };
 
+
+
   return (
     <div  className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
-      <h2>Login</h2>
+      <h2 style={{textAlign:"center"}}>Login</h2>
         <input
           type="text"
           placeholder="Username"
@@ -43,7 +45,7 @@ function Signin({ setIsAuthenticated }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
-        <p>
+        <p className='para'>
         Don't have an account? <Link to="/signup" className="hp">SignUp</Link>
       </p>
       </form>
