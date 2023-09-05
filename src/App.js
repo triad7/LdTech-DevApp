@@ -12,6 +12,7 @@ import Maincontact from './components/pages/Maincontact';
 import Signin from './components/pages/Signin';
 import Signup from './components/Subpages/Signup';
 import Signout from './components/pages/Signout';
+import ForgotPassword from "./components/pages/ForgotPassword"; 
 
 
 
@@ -31,6 +32,8 @@ function App() {
         <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signout" element={<Signout setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
       </Routes>
     </Router>
   );
