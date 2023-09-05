@@ -251,7 +251,8 @@ label {
 }
 .login-form p{
   font-size: 15px;
-  margin-top: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .login-form .hp{
