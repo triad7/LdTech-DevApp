@@ -39,8 +39,8 @@ function Signup() {
     <div className="signup-container">
       <form  className="signup-form" onSubmit={handleSubmit}>
       <h2>Registration</h2>
-      {message && <div className="success-message">{message}</div>}
-      {error && <div className="error-message">{error}</div>}
+      {message && <div className="success-message" style={{color:'green'}}>{message}</div>}
+      {error && <div className="error-message" style={{color:'red'}}>{error}</div>}
       <br />
         <input
           type="text"

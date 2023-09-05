@@ -34,7 +34,7 @@ function Signin({ setIsAuthenticated }) {
     <div  className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
       <h2 style={{textAlign:"center"}}>Login</h2>
-      {error && <div className="error-message">{error}</div>} 
+      {error && <div className="error-message" style={{color:'red'}}>{error}</div>} 
       <br />
         <input
           type="text"
