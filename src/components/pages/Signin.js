@@ -8,6 +8,7 @@ function Signin({ setIsAuthenticated }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,14 +23,18 @@ function Signin({ setIsAuthenticated }) {
       setIsAuthenticated(true); // Set isAuthenticated to true
       navigate('/'); // Redirect to home page after login
     } catch (error) {
+      setError('Invalid username or password');
       console.error(error);
     }
   };
 
-return (
-    <div className="login-container">
+
+  return (
+    <div  className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
-        <h2>Login</h2>
+      <h2 style={{textAlign:"center"}}>Login</h2>
+      {error && <div className="error-message">{error}</div>} 
+      <br />
         <input
           type="text"
           placeholder="Username"
@@ -54,6 +59,9 @@ return (
             SignUp
           </Link>
         </p>
+        <p className='para'>
+        Don't have an account? <Link to="/signup" className="hp">SignUp</Link>
+      </p>
       </form>
     </div>
   );

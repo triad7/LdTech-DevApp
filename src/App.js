@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/pages/Home';
@@ -18,6 +18,15 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  
+  // Check authentication status on app initialization
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   return (
     <Router>
       <Navbar isAuthenticated={isAuthenticated} />

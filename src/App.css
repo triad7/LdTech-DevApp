@@ -5,7 +5,7 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.cijob,
+
 .history,
 .testing{
   display: flex;
@@ -15,14 +15,6 @@
   font-size: 3rem;
 }
 
-.cijob{
-  background-color: rgb(204, 218, 86);
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
 
 .history {
   background-color: rgb(212, 52, 212);
@@ -210,6 +202,8 @@ label {
   margin-bottom: 20px;
 }
 
+
+
 .login-form input {
   width: 100%;
   margin-bottom: 10px;
@@ -264,6 +258,10 @@ label {
 .signup-form .hp{
   font-size: 15px;
   color: rgba(45, 45, 216, 0.822);
+  margin-top: 50px;
+}
+.signup-form .para{
+  margin-top: 15px;
 }
 
 .signup-form input {
@@ -282,6 +280,7 @@ label {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  margin: auto;
 }
 
 .signout{

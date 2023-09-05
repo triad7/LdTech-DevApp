@@ -1,66 +1,85 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import '../../App.css';
 
-const Signup = () => {
+function Signup() {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
-  const handleSignup = async (e) => {
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:5000/auth/signup', {
-        username,
-        email,
-        password,
-      });
-
-      alert('User created successfully');
+      const response = await axios.post('http://localhost:5000/auth/signup', formData);
+      console.log(response.data);
+      setMessage(response.data.message); // Set the success message
+      setError('');
     } catch (error) {
-
-      console.log(error);
-
-      console.error(error);
-
+      console.error(error.response.data.error);
+      setError(error.response.data.error); // Set the error message
+      setMessage('');
     }
   };
 
   return (
     <div className="signup-container">
-      <form className="signup-form" onSubmit={handleSignup}>
-        <h2>Sign Up</h2>
+      <form  className="signup-form" onSubmit={handleSubmit}>
+      <h2>Registration</h2>
+      {message && <div className="success-message">{message}</div>}
+      {error && <div className="error-message">{error}</div>}
+      <br />
         <input
           type="text"
+          name="username"
           placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={formData.username}
+          onChange={handleChange}
         />
         <input
           type="email"
+          name="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={formData.email}
+          onChange={handleChange}
         />
         <input
           type="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={formData.password}
+          onChange={handleChange}
         />
-        <button type="submit">Sign Up</button>
-        <p>
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+        />
+        <button type="submit">Register</button>
+        <p className="para">
           Already have an account?{' '}
           <Link to="/signin" className="hp">
-            LogIn
+            Log In
           </Link>
         </p>
       </form>
     </div>
   );
-};
+}
 
 export default Signup;
