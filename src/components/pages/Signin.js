@@ -48,16 +48,19 @@ function Signin({ setIsAuthenticated }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+      
+        <button type="submit" style={{margin:'auto'}}>Login</button>
         <p className='para'>
         Don't have an account? <Link to="/signup" className="hp">SignUp</Link>
       </p>
+      
+      
       </form>
-     
     </div>
   );
 }
 
 export default Signin;
+
 
 
