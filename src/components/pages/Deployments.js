@@ -9,11 +9,14 @@ export default function Deployments() {
     <div className='deployments-page'>
       <div className='deployment-header'>
         <div className='deployment-title'>
-          <FontAwesomeIcon icon={faArrowAltCircleUp} className='deployment-icon' />
+         <FontAwesomeIcon icon={faArrowAltCircleUp} className='deployment-icon' />
           Deployments
         </div>
         <div className='new-deployment'>
-        <FontAwesomeIcon icon={faPlusCircle} className='plus-icon' /> &nbsp; New Deployment
+        
+          <Link to="/deployment/new-deploy">
+          <FontAwesomeIcon icon={faPlusCircle} className='plus-icon' /> &nbsp; New Deployment
+          </Link>
         </div>
       </div>
       <div className='deployment-content'>

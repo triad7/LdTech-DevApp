@@ -65,6 +65,7 @@
   cursor: pointer;
   margin-right: 50px;
   color:  #9c448f;
+  text-decoration: none;
 }
 
 .plus-icon {
@@ -94,6 +95,7 @@
   background-color: white; 
   box-shadow: -10px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.1); 
 }
+
 
  .github-page {
   margin: 20px;
@@ -137,7 +139,7 @@ label {
   width: 100%;
   padding: 5px 0px;
   background-color: #ccc;
-  border: 1px solid #f5f0f0;
+  border: 1px solid #5f3cc9;
   border-radius: 3px;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -167,7 +169,7 @@ label {
   .github-form td{
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    
   }
 
 .button-group button {

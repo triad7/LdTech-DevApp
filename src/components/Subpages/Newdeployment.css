@@ -1,0 +1,56 @@
+/* Newdeployment.css */
+
+.newdeploy-page {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fff; /* Background color */
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  }
+  
+  .newdeploy-table {
+    max-width: 400px;
+    border-collapse: collapse;
+  }
+  
+  .newdeploy-table label {
+    font-weight: bold;
+  }
+  
+  .newdeploy-table input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .newdeploy-table select {
+    width: 100%;
+    padding: 8px;
+    margin: 3px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .newdeploy-table button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .newdeploy-table button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+  .newdeploy-table th, td {
+    padding: 12px 15px;
+    text-align: left;
+  }

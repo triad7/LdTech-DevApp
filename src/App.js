@@ -12,7 +12,7 @@ import Maincontact from './components/pages/Maincontact';
 import Signin from './components/pages/Signin';
 import Signup from './components/Subpages/Signup';
 import Signout from './components/pages/Signout';
-
+import Newdeployment from './components/Subpages/Newdeployment';
 
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/deployment" element={<Deployments />} />
+        <Route path="/deployment/new-deploy" element={<Newdeployment />} />
         <Route path="/cijobs" element={<Cijobs />} />
         <Route path="/github" element={<Github />} />
         <Route path="/history" element={<History />} />

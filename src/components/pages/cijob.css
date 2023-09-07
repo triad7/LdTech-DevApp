@@ -55,17 +55,18 @@
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
   }
-  
-  table {
+                 
+  .table-container table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
+
   
-  th, td {
+   .maincijob .table-container th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+  
   }
   
   /* Pagination button styles */

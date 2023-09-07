@@ -31,7 +31,7 @@ export default function Cijobs() {
  const dataToDisplay = filteredData.slice(startIndex, endIndex);
 
   return (
-    <div>
+    <div className='maincijob'>
         <div className="search-container">
         <p>Repo Serch</p>
         <input
