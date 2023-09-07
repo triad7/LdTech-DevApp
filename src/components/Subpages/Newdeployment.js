@@ -15,8 +15,8 @@ export default function Newdeployment() {
               <td><label htmlFor='style'>Style:</label></td>
               <td>
               <select id='style'>
-                  <option value='default' selected>Select a Style</option>
-                  <option value='option1'>Free Style Pipeline</option>
+                  <option value='default' selected>Select</option>
+                  <option value='option1'>Pipeline</option>
                 </select>
               </td>
             </tr>
@@ -25,13 +25,18 @@ export default function Newdeployment() {
               <td>
               <select id='style'>
                   <option value='default' selected>Select</option>
-                  <option value='option1'>GitHub Hook Poll SCM</option>
+                  <option value='option1'>GitHub Hook</option>
                 </select>
               </td>
             </tr>
             <tr>
               <td><label htmlFor='pipeline'>Pipeline:</label></td>
-              <td><input type='text' /></td>
+              <td>
+              <select id='style'>
+                  <option value='default' selected>Select</option>
+                  <option value='option1'>Pipeline Script From SCM</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td><label htmlFor='scm'>SCM:</label></td>

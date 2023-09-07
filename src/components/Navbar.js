@@ -8,7 +8,7 @@ import './Navbar.css';
 import Dropdown from './Dropdown';
 import Testdropdown from './Testdropdown';
 import Historydropdown from './Historydropdown';
-import ldlogo from "./images/ldlogo.png";
+import logo from "./images/logo.png";
 
 function Navbar({ isAuthenticated }) {
   const [click, setClick] = useState(false);
@@ -67,7 +67,7 @@ function Navbar({ isAuthenticated }) {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src={ldlogo} alt="Logo" className='logo-image' />
+          <img src={logo} alt="Logo" className='logo-image' style={{height:70}}/>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <FontAwesomeIcon icon={click ? faTimes : faBars} />
