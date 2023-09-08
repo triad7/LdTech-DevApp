@@ -22,7 +22,19 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (formData.password.length < 8 || formData.password.length > 255) {
+      setError('Password should be between 8 and 255 characters');
+      setMessage('');
+      return;
+    }
 
+    if (formData.username.length < 5) {
+      setError('Username should be at least 5 characters long');
+      setMessage('');
+      return;
+    }
+    
     try {
       const response = await axios.post('http://localhost:5000/auth/signup', formData);
       console.log(response.data);
