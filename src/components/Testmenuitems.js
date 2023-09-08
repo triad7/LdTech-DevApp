@@ -5,7 +5,7 @@ export const Testmenuitems = [
       cName: 'dropdown-link'
     },
     {
-      title: 'Grafana',
+      title: 'Log Files',
       path: '/testgraphana',
       cName: 'dropdown-link'
     }
