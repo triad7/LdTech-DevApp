@@ -1,6 +1,6 @@
 
 const express = require('express');
-const Contact = require('../models/User'); // Assuming Contact model is in the same file as User model
+const Contact = require('../models/Contact'); // Assuming Contact model is in the same file as User model
 const router = express.Router();
 
 // Route for handling contact form submissions

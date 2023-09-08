@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [Data, setData] = useState({
     name: '',
     email: '',
     message: '',
@@ -14,19 +14,19 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setData({ ...Data, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/contact/submit', formData);
+      const response = await axios.post('http://localhost:5000/contact/submit', Data);
       console.log(response.data);
       setMessage('We will contact you soon');
       setError('');
        // Clear the form fields after click on send button
-         setFormData({
+         setData({
            name: '',
            email: '',
            message: '',
@@ -65,7 +65,7 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
+                  value={Data.name}
                   onChange={handleChange}
                 />
               </div>
@@ -75,7 +75,7 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
+                  value={Data.email}
                   onChange={handleChange}
                 />
               </div>
@@ -85,7 +85,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
+                value={Data.message}
                 onChange={handleChange}
               ></textarea>
             </div>
