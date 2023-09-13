@@ -14,7 +14,11 @@ const Footer = () => {
           <FontAwesomeIcon icon={faFacebook}/>
          
         </a>
+<<<<<<< HEAD
         <a href=" https://www.ldtech.in/" className="social-icon">
+=======
+        <a href="https://www.ldtech.in/" className="social-icon">
+>>>>>>> fcac7666c8bca04da16212961c9313b82a4ab711
           <FontAwesomeIcon icon={faGoogle} />
         </a>
         <a href="https://instagram.com/ldtechelearning?igshid=MzRlODBiNWFlZA==" className="social-icon">
