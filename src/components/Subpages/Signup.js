@@ -22,23 +22,13 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
+
     if (formData.password.length < 8 || formData.password.length > 255) {
       setError('Password must be 8 to 255 characters');
       setMessage('');
       return;
     }
 
-    if (formData.username.length < 5) {
-      setError('Username must be at least 5 characters long');
-=======
-    
-    if (formData.password.length < 8 || formData.password.length > 255) {
-      setError('Password should be between 8 and 255 characters');
->>>>>>> fcac7666c8bca04da16212961c9313b82a4ab711
-      setMessage('');
-      return;
-    }
 
     if (formData.username.length < 5) {
       setError('Username should be at least 5 characters long');
