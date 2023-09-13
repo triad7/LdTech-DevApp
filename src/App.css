@@ -97,53 +97,61 @@
 }
 
 
- .github-page {
-  margin: 20px;
-  padding: 20px;
+/*Github Styles */
+.git-container {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+  padding: 20px;
+  margin-top: 20px;
 }
-
-.github-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.github-icon {
-  font-size: 2rem;
-  margin-right: 10px;
+.git-head p{
+  font-size: large;
   margin-top: 10px;
+  text-align: center;
+}
+.git-head button{
+ margin-top: 10px;
+ justify-content: center;
+ align-items: center;
+ margin-left: 47%;
 }
 
 .github-title {
-  font-size: 25px;
-  margin-top: 10px;
+  font-size: 24px;
+  color: #333; /* Change the color as needed */
+  margin-top: 10px; /* Add margin to separate the icon and title */
 }
 
-.github-form {
-  margin-bottom: 20px;
+.github-icon {
+  font-size: 40px;
+  margin-bottom: 10px; /* Add margin to move the icon below the title */
+  color: #333; /* Change the color as needed */
 }
 
-.formgroup {
-  margin-bottom: 10px;
+.repo-info {
+  margin-top: 20px;
 }
 
-label {
-  display: inline-block;
-}
-
- .github-form input {
+.repo-table {
   width: 100%;
-  padding: 5px 0px;
-  background-color: #ccc;
-  border: 1px solid #5f3cc9;
-  border-radius: 3px;
-  margin-left: 30px;
-  margin-bottom: 10px;
+  border-collapse: collapse;
 }
+
+.repo-table th,
+.repo-table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.repo-table th {
+  background-color: #f2f2f2;
+}
+
 
 /* Table styles */
   .table-container {
@@ -154,23 +162,7 @@ label {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
   }
   
- .github-form table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
- .github-form th{
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
 
-  .github-form td{
-    padding: 12px 15px;
-    text-align: left;
-    
-  }
 
 .button-group button {
   padding: 10px 10px;

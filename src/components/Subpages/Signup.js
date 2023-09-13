@@ -22,6 +22,17 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.password.length < 8 || formData.password.length > 255) {
+      setError('Password must be 8 to 255 characters');
+      setMessage('');
+      return;
+    }
+
+    if (formData.username.length < 5) {
+      setError('Username must be at least 5 characters long');
+      setMessage('');
+      return;
+    }
 
     try {
       const response = await axios.post('http://localhost:5000/auth/signup', formData);
@@ -38,7 +49,7 @@ function Signup() {
   return (
     <div className="signup-container">
       <form  className="signup-form" onSubmit={handleSubmit}>
-      <h2>Registration</h2>
+      <h2 style={{textAlign:'center'}}>Registration</h2>
       {message && <div className="success-message" style={{color:'green'}}>{message}</div>}
       {error && <div className="error-message" style={{color:'red'}}>{error}</div>}
       <br />

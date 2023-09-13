@@ -10,14 +10,14 @@ const Footer = () => {
        <br/>
       <div className="social-icons">
        
-        <a href="#" className="social-icon">
+        <a href="https://www.facebook.com/ldtechelearning?mibextid=LQQJ4d" className="social-icon">
           <FontAwesomeIcon icon={faFacebook}/>
          
         </a>
-        <a href="#" className="social-icon">
+        <a href=" https://www.ldtech.in/" className="social-icon">
           <FontAwesomeIcon icon={faGoogle} />
         </a>
-        <a href="#" className="social-icon">
+        <a href="https://instagram.com/ldtechelearning?igshid=MzRlODBiNWFlZA==" className="social-icon">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
         <a href="https://www.linkedin.com/company/livedigitaltechnologies/mycompany/" className="social-icon">
