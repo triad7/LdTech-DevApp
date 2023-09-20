@@ -109,6 +109,10 @@
   padding: 20px;
   margin-top: 20px;
 }
+
+.github-form input{
+  background-color: #e5e3e3;
+}
 .git-head p{
   font-size: large;
   margin-top: 10px;
@@ -152,6 +156,10 @@
   background-color: #f2f2f2;
 }
 
+.git-container .button-container{
+  display: flex;
+}
+
 
 /* Table styles */
   .table-container {
@@ -162,8 +170,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
   }
   
-
-
 .button-group button {
   padding: 10px 10px;
   margin-right: 10px;
@@ -180,7 +186,7 @@
   margin-right: 5px;
 }
 
-.authorize-button {
+.git-head .authorize-button {
   background-color: #4caf50;
   color: white;
 }
@@ -258,7 +264,6 @@
 }
 
 
-
 /* Signup.css */
 
 .signup-container {
@@ -314,3 +319,76 @@
   justify-content: center;
 }
 
+
+/* Cijob style */
+
+.main-cijob {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+.search-container p {
+  margin-right: 10px; 
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  margin-left: 10px;
+}
+
+.search-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.search-container table, th, td {
+  border: 1px solid #ccc;
+}
+
+.search-container th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+.search-container thead {
+  background-color: #f2f2f2;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #45a049;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+ .pagination button:hover {
+  background-color: #0056b3;
+}

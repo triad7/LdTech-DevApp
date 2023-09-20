@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 
 function Github() {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = usePersistentState('isAuthorized', false);
   const [authorizationMessage, setAuthorizationMessage] = useState('');
-  const [username, setUsername] = useState('');
-  const [repositoryName, setRepositoryName] = useState('');
-  const [branch, setBranch] = useState('');
-  const [repositoryData, setRepositoryData] = useState([]);
-  const [repositoryInfo, setRepositoryInfo] = useState(null);
+  const [username, setUsername] = usePersistentState('username', '');
+  const [repositoryName, setRepositoryName] = usePersistentState('repositoryName', '');
+  const [branch, setBranch] = usePersistentState('branch', '');
+  const [repositoryData, setRepositoryData] = usePersistentState('repositoryData', []);
+  const [repositoryInfo, setRepositoryInfo] = usePersistentState('repositoryInfo', null);
   const [isLoading, setIsLoading] = useState(false);
-  const [lastStatus, setLastStatus] = useState('N/A');
-  const [lastModified, setLastModified] = useState('N/A');
-
+  const [lastStatus, setLastStatus] = usePersistentState('lastStatus', 'N/A');
+  const [lastModified, setLastModified] = usePersistentState('lastModified', 'N/A');
+  
   const handleAuthorize = () => {
     // Redirect the user to your server's /authorize route
     window.location.href = 'http://localhost:5000/authorize'; // Change this URL to your server's URL
@@ -34,6 +34,7 @@ function Github() {
         setAuthorizationMessage('Repository Data Loaded Successfully');
         // Fetch additional repository information
         await fetchRepositoryInfo(username, repositoryName);
+        console.log(data);
       } else {
         setRepositoryData([]);
         setAuthorizationMessage('Error: Repository or Branch not found');
@@ -58,6 +59,7 @@ function Github() {
           const lastEvent = data[0]; // Assuming the first event is the last one
           const eventType = lastEvent.type;
           setLastStatus(eventType);
+          console.log(data);
         } else {
           setLastStatus('No recent activity');
         }
@@ -136,13 +138,28 @@ function Github() {
       setIsAuthorized(true);
       getAccessToken(code);
     }
-  }, []);
+  }, [setIsAuthorized]);
+
+// Custom hook to manage state and session storage
+function usePersistentState(key, initialState) {
+  const [state, setState] = useState(() => {
+    const storedValue = sessionStorage.getItem(key);
+    return storedValue ? JSON.parse(storedValue) : initialState;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+}
+
 
   async function getAccessToken(code) {
     try {
       const response = await fetch(`http://localhost:5000/callback?code=${code}`);
       const data = await response.json(); // Parse the response as JSON
-
+      console.log(data);
       if (data.status === 'success') {
         setAuthorizationMessage('Authorize Success');
       } else {
@@ -154,6 +171,13 @@ function Github() {
     }
   }
 
+  const handleClear = () =>{
+    setUsername('');
+    setRepositoryName('');
+    setBranch('');
+  }
+
+ 
   return (
     <div className='github-page'>
       <div className='git-head'>
@@ -165,7 +189,7 @@ function Github() {
       {isAuthorized && (
         <div className='git-container'>
            <FontAwesomeIcon icon={fabGithub} className='github-icon' />
-           <h1 className='github-title'> GitHub &gt; {username ? <span>{username}</span> : 'Autenticate'} </h1>
+           <h1 className='github-title'> GitHub &gt; {username ? <span>{username}</span> : 'Owner'} </h1>
           <table className='github-form'>
           <tbody>
           <tr>
@@ -180,9 +204,12 @@ function Github() {
             <td><label>Branch:</label></td> 
             <td><input type="text" value={branch} onChange={(e) => setBranch(e.target.value)} /></td> 
           </tr>
-          <button onClick={handleSearch} disabled={isLoading}> Search Repository</button>
           </tbody>
           </table>
+          <div className='button-container'>
+            <button onClick={handleClear}>Clear</button>
+            <button onClick={handleSearch} disabled={isLoading}>Search Repo</button>
+          </div>
 
           {isLoading && <p>Loading...</p>}
           {!isLoading && (
@@ -235,5 +262,6 @@ function Github() {
     </div>
   );
 }
+
 
 export default Github;

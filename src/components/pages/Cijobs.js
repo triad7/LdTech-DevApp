@@ -1,83 +1,92 @@
-import './cijob.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import '../../App.css';
 
+const Cijobs = () => {
+  const [repoData, setRepoData] = useState([]); // Store repository data
+  const [sortedData, setSortedData] = useState([]); // Store sorted repository data
+  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const [reposPerPage] = useState(5); // Number of repositories per page
 
-export default function Cijobs() {
-  const [data, setData] = useState([]);
-  const itemsPerPage = 10;
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState(''); 
+  // Sample repository data (replace with your actual data)
+  const sampleData = [
+    {
+      name: 'Repo 1',
+      owner: 'Owner 1',
+      url: 'https://github.com/repo1',
+      branch: 'main',
+      lastModified: '2023-09-14',
+    },
+    // Add more repository objects here
+  ];
 
   useEffect(() => {
-    // Fetch data from your API here and update the 'data' state.
-    // Example API call:
-    fetch('https://api.example.com/github-repos')
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error('Error fetching data:', error));
+    // You can fetch data from an API or set your data here
+    // For now, we'll use sample data
+    setRepoData(sampleData);
   }, []);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  // Calculate the index of the last repository on the current page
+  const indexOfLastRepo = currentPage * reposPerPage;
+  // Calculate the index of the first repository on the current page
+  const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+  // Get the repositories for the current page
+  const currentRepos = sortedData.slice(indexOfFirstRepo, indexOfLastRepo);
 
-   // Filter the data based on the search term
-   const filteredData = data.filter((repo) =>
-   repo.repoName.toLowerCase().includes(searchTerm.toLowerCase())
- );
-
- 
- const dataToDisplay = filteredData.slice(startIndex, endIndex);
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className='maincijob'>
-        <div className="search-container">
-        <p>Repo Serch</p>
-        <input
-          type="text"
-          placeholder="Search Repo name"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+    <div className='main-cijob'>
+      <div className="search-container">
+        <p>Repo Search</p>
+        <input type="text" placeholder="Search Repo name" />
         <FontAwesomeIcon icon={faSearch} className="search-icon" />
       </div>
-      
-    <div className="table-container">
       <table>
         <thead>
           <tr>
-            <th>Username</th>
-            <th>Repo Name</th>
-            <th>Repo URL</th>
+            <th>RepoName</th>
             <th>Owner</th>
-            <th>Last Status</th>
-            <th>Last Modified</th>
+            <th>URL</th>
+            <th>Branch</th>
+            <th>LastModified</th>
+            <th>Delete</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
-          {dataToDisplay.map((repo) => (
-            <tr key={repo.id}>
-              <td>{repo.username}</td>
-              <td>{repo.repoName}</td>
-              <td>{repo.stats}</td>
+          {currentRepos.map((repo, index) => (
+            <tr key={index}>
+              <td>{repo.name}</td>
+              <td>{repo.owner}</td>
+              <td><a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.url}</a></td>
+              <td>{repo.branch}</td>
               <td>{repo.lastModified}</td>
+              <td>
+                <button>Delete</button>
+              </td>
+              <td>
+                <button>Edit</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="pagination-buttons">
-        <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
-          Previous
+      <div className="pagination">
+        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+          Prev
         </button>
-        <button onClick={() => setCurrentPage(currentPage + 1)} disabled={endIndex >= data.length}>
+        {Array.from({ length: Math.ceil(sortedData.length / reposPerPage) }).map((_, index) => (
+          <button key={index} onClick={() => paginate(index + 1)}>{index + 1}</button>
+        ))}
+        <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(sortedData.length / reposPerPage)}>
           Next
         </button>
       </div>
     </div>
-
-    </div>
-
-   
   );
-}
+};
+
+export default Cijobs;

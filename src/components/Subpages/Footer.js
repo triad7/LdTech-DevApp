@@ -6,7 +6,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <img src= "https://www.ldtech.in/images/logo.png" />
+      <img src= "https://www.ldtech.in/images/logo.png" alt='ldlogo'/>
        <br/>
       <div className="social-icons">
        
