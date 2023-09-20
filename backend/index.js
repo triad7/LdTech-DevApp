@@ -69,8 +69,6 @@ app.get('/callback', async (req, res) => {
 
 
 
-
-
 //Create api for sonarqube
 // Function to convert UTC date and time to IST
 function convertToIST(utcDate) {
@@ -147,6 +145,70 @@ app.get('/api/issues', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching issues' });
   }
 });
+
+
+// Define a route to fetch bugs value for all projects
+app.get('/api/bugs', async (req, res) => {
+  const sonarQubeApiUrl = 'http://13.234.23.179:9000/api/components/search'; // Use the search endpoint to get a list of all projects
+  const metricKeys = 'bugs';
+  const username = 'admin';
+  const password = 'sonar';
+
+  try {
+    const response = await axios.get(sonarQubeApiUrl, {
+      params: {
+        qualifiers: 'TRK', // Filter for projects (not directories or files)
+        p: 1, // Page number (you may need to paginate through results)
+        ps: 500, // Number of results per page (adjust as needed)
+      },
+      auth: {
+        username,
+        password,
+      },
+    });
+
+    // Extract project keys from the response
+    const projectKeys = response.data.components.map((component) => component.key);
+
+    // Fetch bug counts for each project
+    const bugPromises = projectKeys.map(async (projectKey) => {
+      try {
+        const projectResponse = await axios.get('http://13.234.23.179:9000/api/measures/component', {
+          params: {
+            component: projectKey,
+            metricKeys: metricKeys,
+          },
+          auth: {
+            username,
+            password,
+          },
+        });
+
+        // Extract the bugs value for the project
+        const bugsValue = projectResponse.data.component.measures.find((measure) => measure.metric === 'bugs');
+
+        return {
+          projectKey: projectKey,
+          bugs: bugsValue ? bugsValue.value : 0, // Default to 0 if bugs metric not found
+        };
+      } catch (error) {
+        console.error(`Error fetching bugs for project ${projectKey}:`, error);
+        return {
+          projectKey: projectKey,
+          bugs: 0, // Set bugs count to 0 in case of an error
+        };
+      }
+    });
+
+    const bugsValues = await Promise.all(bugPromises);
+    res.json({ projects: bugsValues });
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ error: 'An error occurred while fetching projects' });
+  }
+});
+
+
 
 
 //App running on port 

@@ -392,3 +392,57 @@
  .pagination button:hover {
   background-color: #0056b3;
 }
+
+
+/* Testing Page style */
+
+.prosort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style for the left paragraph */
+.prosort p:first-child {
+  margin-right: auto;
+}
+
+/* Add additional styling as needed */
+.prosort select {
+  margin-left: 10px; /* Add some spacing between "SortBy" and the select element */
+}
+
+.project-div {
+  /* Your existing styles for project divs */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  display: flex; /* Add flex display for positioning */
+  justify-content: space-between; /* Space elements evenly in the container */
+}
+
+.project-info {
+  /* Styles for project name and last analysis */
+  display: flex; /* Display project name and last analysis side by side */
+  flex-direction: column; /* Stack project name and last analysis vertically */
+}
+
+.project-name {
+  /* Your existing styles for project names */
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.last-analysis {
+  /* Your existing styles for last analysis */
+  font-size: 14px;
+  color: #666;
+}
+
+.bugs {
+  /* Styles for the Bugs count */
+  font-size: 14px;
+  color: red; /* You can choose your preferred color */
+}
