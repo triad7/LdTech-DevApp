@@ -147,6 +147,28 @@ app.get('/api/issues', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching issues' });
   }
 });
+ 
+  // grafana api init
+  const grafanaApi = 'http://13.234.23.179:3100/loki/api/v1/query_range?query={job="varlogs"}';
+  app.get('/api/grafana', async(req, res) => {
+    const username = 'admin';
+    const password = 'grafana'
+    try{
+      const response = await axios.get(grafanaApi,{
+       auth: {
+        username,
+        password
+       } 
+      });
+      //send your data to frontend
+      
+      res.json(response.data);
+    }catch(error){
+      console.error('Error Fetching Grafana:', error);
+      res.status(500).json({error: 'An error occured while fetching Grafana'});
+    }
+  })
+
 
 
 //App running on port 

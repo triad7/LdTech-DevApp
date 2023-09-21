@@ -6,7 +6,7 @@ export const Testmenuitems = [
     },
     {
       title: 'Log Files',
-      path: '/testgraphana',
+      path: '/grafana',
       cName: 'dropdown-link'
     }
   ];
