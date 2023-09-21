@@ -25,13 +25,13 @@ import axios from 'axios';
     <div>Logfiles</div>
     <button onClick={fetchGrafana}>GET</button>
     <h1>DATA :</h1>
-    <ul>
+    {/* <ul>
         {data.map((data) => (
             <li>
                 {data.values}
             </li>
         ))}
-        </ul>     
+        </ul>      */}
     </>
   )
 }
