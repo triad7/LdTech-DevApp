@@ -11,7 +11,7 @@ export const Testmenuitems = [
     },
     {
       title: 'Selenium',
-      path: '/testselenium',
+      path: '/testing/testselenium',
       cName: 'dropdown-link'
     }
   ];

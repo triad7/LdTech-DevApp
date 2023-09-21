@@ -209,6 +209,36 @@ app.get('/api/bugs', async (req, res) => {
 });
 
 
+// Define a route to fetch alert status for a specific component
+app.get('/api/alert-status/:componentKey', async (req, res) => {
+  const sonarQubeApiUrl = 'http://13.234.23.179:9000/api/measures/component';
+  const metricKey = 'alert_status'; // Metric key for alert status
+  const { componentKey } = req.params; // Extract the component key from the URL
+
+  const username = 'admin';
+  const password = 'sonar';
+
+  try {
+    const response = await axios.get(sonarQubeApiUrl, {
+      params: {
+        component: componentKey,
+        metricKeys: metricKey,
+      },
+      auth: {
+        username,
+        password,
+      },
+    });
+
+    // Extract the alert status value for the component
+    const alertStatusValue = response.data.component.measures.find((measure) => measure.metric === metricKey);
+
+    res.json({ alert_status: alertStatusValue ? alertStatusValue.value : null });
+  } catch (error) {
+    console.error(`Error fetching alert status for component ${componentKey}:`, error);
+    res.status(500).json({ error: 'An error occurred while fetching alert status' });
+  }
+});
 
 
 //App running on port 

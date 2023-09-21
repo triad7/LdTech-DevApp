@@ -396,6 +396,15 @@
 
 /* Testing Page style */
 
+.main-container {
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.search-container{
+  margin-top: 20px;
+}
 .prosort {
   display: flex;
   justify-content: space-between;
@@ -446,3 +455,85 @@
   font-size: 14px;
   color: red; /* You can choose your preferred color */
 }
+.issue-item {
+  margin-bottom: 10px;
+}
+
+.issue-box {
+  display: flex; /* Use flexbox to arrange content */
+  border: 1px solid #ccc; /* Add a border around the issue box */
+  padding: 10px; /* Add some padding inside the issue box */
+}
+
+.issue-content {
+  flex: 1; /* Grow to fill available space */
+}
+
+.issue-details {
+  text-align: right; /* Align "Effort" and "Date" to the right */
+}
+
+
+.alert-status {
+  /* Your styles for alert-status here */
+  font-weight: 20px;
+  margin-left: 8px; /* Add margin to separate the project name and alert status */
+  padding: 4px 8px; /* Add padding for background color */
+  border-radius: 4px; /* Add border-radius for rounded corners */
+  color: white; /* White text color */
+  border-radius: 15px;
+  font-size: small;
+}
+
+.alert-status.error {
+  background-color: rgb(209, 72, 72); /* Red background for error status */
+}
+
+.alert-status.ok {
+  background-color: green; /* Green background for ok status */
+  color: white; /* White text color */
+}
+.total-issues {
+  margin-top: 20px; /* Adjust the top margin as needed */
+  margin-bottom: 20px; /* Adjust the bottom margin as needed */
+}
+
+.nav {
+  text-align: center;
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+.nav-items {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px; /* Adjust the left and right margin as needed */
+  cursor: pointer;
+  color: black; /* Change the text color */
+  position: relative; /* Required for positioning the line */
+  font-weight: bold;
+}
+
+.nav-items.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* Adjust the thickness of the line */
+  background-color: #0056b3; /* Change the line color for the active tab */
+  transform-origin: center;
+  transform: scaleX(0); /* Initially, the line is invisible */
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-items:hover::after,
+.nav-items.active::after {
+  transform: scaleX(1); /* On hover or when active, expand the line to full width */
+}
+
+
+
+
+
+
+
