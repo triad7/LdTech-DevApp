@@ -69,6 +69,8 @@ app.get('/callback', async (req, res) => {
 
 
 
+
+
 //Create api for sonarqube
 // Function to convert UTC date and time to IST
 function convertToIST(utcDate) {
@@ -146,7 +148,7 @@ app.get('/api/issues', async (req, res) => {
   }
 });
  
-  // grafana api init
+  // grafana api initialized
   const grafanaApi = 'http://13.234.23.179:3100/loki/api/v1/query_range?query={job="varlogs"}';
   app.get('/api/grafana', async(req, res) => {
     const username = 'admin';
@@ -167,100 +169,6 @@ app.get('/api/issues', async (req, res) => {
     }
   })
 
-
-
-// Define a route to fetch bugs value for all projects
-app.get('/api/bugs', async (req, res) => {
-  const sonarQubeApiUrl = 'http://13.234.23.179:9000/api/components/search'; // Use the search endpoint to get a list of all projects
-  const metricKeys = 'bugs';
-  const username = 'admin';
-  const password = 'sonar';
-
-  try {
-    const response = await axios.get(sonarQubeApiUrl, {
-      params: {
-        qualifiers: 'TRK', // Filter for projects (not directories or files)
-        p: 1, // Page number (you may need to paginate through results)
-        ps: 500, // Number of results per page (adjust as needed)
-      },
-      auth: {
-        username,
-        password,
-      },
-    });
-
-    // Extract project keys from the response
-    const projectKeys = response.data.components.map((component) => component.key);
-
-    // Fetch bug counts for each project
-    const bugPromises = projectKeys.map(async (projectKey) => {
-      try {
-        const projectResponse = await axios.get('http://13.234.23.179:9000/api/measures/component', {
-          params: {
-            component: projectKey,
-            metricKeys: metricKeys,
-          },
-          auth: {
-            username,
-            password,
-          },
-        });
-
-        // Extract the bugs value for the project
-        const bugsValue = projectResponse.data.component.measures.find((measure) => measure.metric === 'bugs');
-
-        return {
-          projectKey: projectKey,
-          bugs: bugsValue ? bugsValue.value : 0, // Default to 0 if bugs metric not found
-        };
-      } catch (error) {
-        console.error(`Error fetching bugs for project ${projectKey}:`, error);
-        return {
-          projectKey: projectKey,
-          bugs: 0, // Set bugs count to 0 in case of an error
-        };
-      }
-    });
-
-    const bugsValues = await Promise.all(bugPromises);
-    res.json({ projects: bugsValues });
-  } catch (error) {
-    console.error('Error fetching projects:', error);
-    res.status(500).json({ error: 'An error occurred while fetching projects' });
-  }
-});
-
-
-// Define a route to fetch alert status for a specific component
-app.get('/api/alert-status/:componentKey', async (req, res) => {
-  const sonarQubeApiUrl = 'http://13.234.23.179:9000/api/measures/component';
-  const metricKey = 'alert_status'; // Metric key for alert status
-  const { componentKey } = req.params; // Extract the component key from the URL
-
-  const username = 'admin';
-  const password = 'sonar';
-
-  try {
-    const response = await axios.get(sonarQubeApiUrl, {
-      params: {
-        component: componentKey,
-        metricKeys: metricKey,
-      },
-      auth: {
-        username,
-        password,
-      },
-    });
-
-    // Extract the alert status value for the component
-    const alertStatusValue = response.data.component.measures.find((measure) => measure.metric === metricKey);
-
-    res.json({ alert_status: alertStatusValue ? alertStatusValue.value : null });
-  } catch (error) {
-    console.error(`Error fetching alert status for component ${componentKey}:`, error);
-    res.status(500).json({ error: 'An error occurred while fetching alert status' });
-  }
-});
 
 
 //App running on port 
