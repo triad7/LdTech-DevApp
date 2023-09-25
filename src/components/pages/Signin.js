@@ -9,6 +9,8 @@ function Signin({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const resetPassword = useNavigate();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,6 +29,9 @@ function Signin({ setIsAuthenticated }) {
       console.error(error);
     }
   };
+    const handleResetPassword = () => {
+      resetPassword('/resetpassword');
+    }
 
 
   return (
@@ -52,7 +57,9 @@ function Signin({ setIsAuthenticated }) {
         <p className='para'>
         Don't have an account? <Link to="/signup" className="hp">SignUp</Link>
       </p>
-      
+        <p className='para'>
+        Forgot Password?  <Link to="/resetpassword" className='hp' onClick={handleResetPassword}>Reset Password</Link>
+        </p>
       
       </form>
     </div>

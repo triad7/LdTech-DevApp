@@ -14,6 +14,8 @@ import Signup from './components/Subpages/Signup';
 import Signout from './components/pages/Signout';
 import Newdeployment from './components/Subpages/Newdeployment';
 import Logfiles from './components/pages/Logfiles';
+import ResetPassword from './components/pages/ResetPassword';
+
 
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signout" element={<Signout setIsAuthenticated={setIsAuthenticated} />} />
         <Route path='/grafana' element={<Logfiles />} />
+        <Route path='/resetpassword' element={<ResetPassword/>} />
+     
 
       </Routes>
     </Router>

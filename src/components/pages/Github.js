@@ -3,6 +3,7 @@ import '../../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 
+
 function Github() {
   const [isAuthorized, setIsAuthorized] = usePersistentState('isAuthorized', false);
   const [authorizationMessage, setAuthorizationMessage] = useState('');
@@ -163,7 +164,7 @@ function usePersistentState(key, initialState) {
       if (data.status === 'success') {
         setAuthorizationMessage('Authorize Success');
       } else {
-        setAuthorizationMessage('Authorize Fail: ' + data.message);
+        setAuthorizationMessage('Authorize Fail: '+ data.message);
       }
     } catch (error) {
       console.error('Error fetching access token:', error);
@@ -181,11 +182,11 @@ function usePersistentState(key, initialState) {
   return (
     <div className='github-page'>
       <div className='git-head'>
-         <p>Authorize your GitHub Account > Click on Authorize Button </p>
+         <p>Authorize your GitHub Account -> Click on Authorize Button </p>
          <button onClick={handleAuthorize}>Authorize</button>
          {isAuthorized && <p>{authorizationMessage}</p>}
       </div>
-
+     
       {isAuthorized && (
         <div className='git-container'>
            <FontAwesomeIcon icon={fabGithub} className='github-icon' />
@@ -208,9 +209,11 @@ function usePersistentState(key, initialState) {
           </table>
           <div className='button-container'>
             <button onClick={handleClear}>Clear</button>
+           
             <button onClick={handleSearch} disabled={isLoading}>Search Repo</button>
+            
           </div>
-
+         
           {isLoading && <p>Loading...</p>}
           {!isLoading && (
             <div className='repo-details'>
@@ -245,19 +248,25 @@ function usePersistentState(key, initialState) {
                         ) : (
                           <p>No repository data to display.</p>
                          )}
+                         
                        </div>
                    </td>
                    <td>{lastModified}</td>
                </tr>
             </tbody>
+          
          </table>
+        
       </div>
+    
         )}
-   
+            
             </div>
           )}
         </div>
+       
       )}
+      
      
     </div>
   );
