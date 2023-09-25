@@ -313,15 +313,25 @@
   cursor: pointer;
   margin: auto;
 }
+  /* Sign Out Page CSS */
 
-.signout{
+.signout-container{
+  font-size: 20px;
+  font-weight: 400;
+  
+  margin: 4rem;
+  border-radius: 10px;
+  background:linear-gradient(90deg, #fd3bd3, #7cedf5fa);
+  padding: 60px;
   text-align: center;
-  justify-content: center;
+  box-shadow: 2px 3px  2px;
+}
+.signout-container button{
+  background-color: #5e0f0f;
 }
 
 
 /* Cijob style */
-
 .main-cijob {
   max-width: 800px;
   margin: 0 auto;
